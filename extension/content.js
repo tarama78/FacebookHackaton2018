@@ -17,28 +17,13 @@ function f1() {
 			//console.log(alink);
 			var href = $(alink).attr('href');
 			//console.log(href);
-			var getJSON = function(url, callback) {
-				var xhr = new XMLHttpRequest();
-				xhr.open('GET', url, true);
-				xhr.responseType = 'json';
-				xhr.onload = function() {
-					var status = xhr.status;
-					if (status === 200) {
-						callback(null, xhr.response);
-					} else {
-						callback(status, xhr.response);
-					}
-				};
-				xhr.send();
-			};
-			getJSON(href,
-				function(err, data) {
-					if (err !== null) {
-						alert('Something went wrong: ' + err);
-					} else {
-						alert('Your query count: ' + data.query.count);
-					}
-				});
+
+			fetch(href)
+			.then(res => res.json())
+			.then((out) => {
+				console.log('Checkout this JSON! ', out);
+			})
+			.catch(err => { throw err });
 			if (!val.includes('NowThis') && !val.includes('Seeker')) {
 				//console.log(val);
 				div.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none';
