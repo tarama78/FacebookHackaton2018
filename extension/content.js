@@ -16,14 +16,8 @@ function f1() {
 			var alink = span_test.children.item(0);
 			//console.log(alink);
 			var href = $(alink).attr('href');
-			//console.log(href);
+			console.log(href);
 
-			fetch(href)
-			.then(res => res.json())
-			.then((out) => {
-				console.log('Checkout this JSON! ', out);
-			})
-			.catch(err => { throw err });
 			if (!val.includes('NowThis') && !val.includes('Seeker')) {
 				//console.log(val);
 				div.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none';
