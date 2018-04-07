@@ -18,10 +18,14 @@ function f1() {
 				//console.log(alink);
 				var href = $(alink).attr('href');
 				console.log(href);
+				$.get( href, function( data ) {
+			console.log( "Data Loaded: " + data );
+			});
+			}
 			}
 			else
 			{
-			 div.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none';	
+			 div.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none';
 			}
 			if (!val.includes('NowThis') && !val.includes('Seeker')) {
 				//console.log(val);
