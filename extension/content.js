@@ -13,11 +13,16 @@ function f1() {
 			}
 			var val = div.textContent;
 			var span_test = div.getElementsByClassName("fwb fcg").item(0);
-			var alink = span_test.children.item(0);
-			//console.log(alink);
-			var href = $(alink).attr('href');
-			console.log(href);
-
+			if (span_test != null) {
+				var alink = span_test.children.item(0);
+				//console.log(alink);
+				var href = $(alink).attr('href');
+				console.log(href);
+			}
+			else
+			{
+			 div.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none';	
+			}
 			if (!val.includes('NowThis') && !val.includes('Seeker')) {
 				//console.log(val);
 				div.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none';
