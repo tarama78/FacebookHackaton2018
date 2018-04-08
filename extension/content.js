@@ -8,6 +8,7 @@ function f1() {
 
 		for (var i = 0; i < divs.length; i++) {
 			var div = divs[i];
+			var isNews = 0;
 			if (div == null) {
 				continue
 			}
@@ -19,46 +20,24 @@ function f1() {
 				var href = $(alink).attr('href');
 				console.log(href);
 				$.get( href, function( data ) {
-			console.log( "Data Loaded: " + data );
-			});
-			}
+					//var news = data.getElementsByClassName("_1c03").item(0);
+					//console.log( "IS NEWS : " + news);
+  				//console.log( "Data Loaded: " + data );
+					if (data.includes('Media/News Company')) {
+						isNews = 1;
+					}
+				});
 			}
 			else
 			{
-			 div.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none';
+				div.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none';
 			}
-			if (!val.includes('NowThis') && !val.includes('Seeker')) {
+			if (isNews == 0) {
 				//console.log(val);
 				div.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none';
 			}
 		}
 	}
 }
-
-//function ft_checkbox() {
-//	console.log('serge check box');
-//	var checkBox = document.getElementById("myCheck");
-	// Get the output text
-//	var text = document.getElementById("text");
-//
-	// If the checkbox is checked, display the output text
-//	if (checkBox.checked == true){
-//		new_only = 1
-//	}
-//	else {
-//		new_only = 0
-//	}
-//}
-
-//function sayHiTo(name) {
-//  return function() {
-//    alert("Hi, " + name + "!");
-//  }
-//}
-//
-// Here, invoking the function is correct: it will return a function
-//document.getElementById("checkBox").addEventListener('click', sayHiTo("Bob"));
-
-
 
 window.setInterval(f1, 1000);
