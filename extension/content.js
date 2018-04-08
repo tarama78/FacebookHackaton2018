@@ -36,5 +36,4 @@ function f1() {
 	}
 }
 
-
 window.setInterval(f1, 1000);
